@@ -64,7 +64,7 @@ class MovieViewController: UIViewController, YTPlayerViewDelegate {
                 }
             }
         } failCompletion: { error in
-            showAlert()
+            self.showAlert()
         }
     }
     
@@ -79,7 +79,7 @@ class MovieViewController: UIViewController, YTPlayerViewDelegate {
                 }
             }
         } failCompletion: { error in
-            showAlert()
+            self.showAlert()
         }
 
     }

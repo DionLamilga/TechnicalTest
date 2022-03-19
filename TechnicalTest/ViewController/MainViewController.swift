@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
                 }
             }
         } failCompletion: { error in
-            showAlert()
+            self.showAlert()
         }
 
         filmCollection.delegate = self
@@ -124,7 +124,7 @@ extension MainViewController: UISearchBarDelegate{
                     }
                 }
             } failCompletion: { error in
-                showAlert()
+                self.showAlert()
             }
         }
     }
