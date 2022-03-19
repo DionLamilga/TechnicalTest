@@ -27,13 +27,12 @@ class MainViewController: UIViewController {
                         self.datas = responseFromApi.results
                         self.totalPage = responseFromApi.totalPages ?? 0
                         self.filterData = self.datas
-                        print("\(responseFromApi.totalPages)")
                         self.filmCollection.reloadData()
                     }
                 }
             }
         } failCompletion: { error in
-            print("error")
+            showAlert()
         }
 
         filmCollection.delegate = self
@@ -63,6 +62,16 @@ class MainViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "You Get 401", message: "Can't Fetch Data From Api", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { action in
+            print("Tapped")
+        }))
+        
+        present(alert, animated: true)
     }
 }
 
@@ -115,7 +124,7 @@ extension MainViewController: UISearchBarDelegate{
                     }
                 }
             } failCompletion: { error in
-                print("Error")
+                showAlert()
             }
         }
     }

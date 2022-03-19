@@ -64,7 +64,7 @@ class MovieViewController: UIViewController, YTPlayerViewDelegate {
                 }
             }
         } failCompletion: { error in
-            print("error")
+            showAlert()
         }
     }
     
@@ -79,9 +79,19 @@ class MovieViewController: UIViewController, YTPlayerViewDelegate {
                 }
             }
         } failCompletion: { error in
-            print("error")
+            showAlert()
         }
 
+    }
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "You Get 401", message: "Can't Fetch Data From Api", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { action in
+            print("Tapped")
+        }))
+        
+        present(alert, animated: true)
     }
 }
 
